@@ -6,7 +6,7 @@ The project is work in progress, only a few simple API commands have been covere
 **Minimum Java 8 is required.**
 Depends on [lombok](https://github.com/rzwitserloot/lombok) and [nanojson](https://github.com/mmastrac/nanojson)
 
-##Sample usage:
+## Sample usage:
 1. Find your Teamwork [API key](https://developer.teamwork.com/projects/finding-your-url-and-api-key/api-key-and-url)
 2. Where needed, the `taskListId` can be found from the url of the task list (Ex: ...teamwork.com/#tasklists/**1234567**)
 ```
