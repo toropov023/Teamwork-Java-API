@@ -1,8 +1,8 @@
 package ca.toropov.api.teamwork.command;
 
+import ca.toropov.api.teamwork.util.JsonBuild;
+import ca.toropov.api.teamwork.util.JsonBuildClass;
 import ca.toropov.api.teamwork.util.RequestMethod;
-import com.grack.nanojson.JsonStringWriter;
-import com.grack.nanojson.JsonWriter;
 import lombok.Builder;
 
 /**
@@ -10,12 +10,17 @@ import lombok.Builder;
  * Date: 1/26/2019
  */
 @Builder
+@JsonBuildClass("todo-item")
 public class CreateTaskCommand implements Command {
+    @JsonBuild(ignore = true)
     private String taskListId;
     @Builder.Default
+    @JsonBuild("content")
     private String taskName = "New task";
     private String description;
+    @JsonBuild("due-date")
     private String dueDate;
+    @JsonBuild("start-date")
     private String startDate;
 
     @Override
@@ -29,24 +34,5 @@ public class CreateTaskCommand implements Command {
     @Override
     public RequestMethod getRequestMethod() {
         return RequestMethod.POST;
-    }
-
-    @Override
-    public String getJson() {
-        JsonStringWriter json = JsonWriter.string()
-                .object()
-                .object("todo-item")
-                .value("content", taskName);
-        if (description != null) {
-            json.value("description", description);
-        }
-        if (startDate != null) {
-            json.value("start-date", startDate);
-        }
-        if (dueDate != null) {
-            json.value("due-date", dueDate);
-        }
-        json.end().end();
-        return json.done();
     }
 }
