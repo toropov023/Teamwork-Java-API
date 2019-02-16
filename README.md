@@ -1,3 +1,4 @@
+[![](https://jitpack.io/v/toropov023/Teamwork-Java-API.svg)](https://jitpack.io/#toropov023/Teamwork-Java-API)
 # WIP: Teamwork Java API
 _A simple teamwork.com Java API_
 
